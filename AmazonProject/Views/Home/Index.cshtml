@@ -2,28 +2,33 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model IQueryable<Book>
+@model BooksViewModel
 
-<h1>Books</h1>
+    <div class="jumbotron">
+        <h1>Book List:</h1>
+    </div>
 
 
-@foreach (Book b in Model)
-            {
-                <h3>@b.Title</h3>
-
+    @foreach (Book b in Model.Books)
+    {
+        // print off all the books in cards
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@b.Title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Author: @b.Author</h6>
                 <ul>
-                    <li>Author: @b.Author</li>
-                    <li>Publisher: @b.Publisher</li>
                     <li>ISBN: @b.Isbn</li>
                     <li>Classification: @b.Classification</li>
                     <li>Category: @b.Category</li>
                     <li>Page Count: @b.PageCount</li>
                     <li>Price: $@b.Price</li>
                 </ul>
+            </div>
+        </div>
+        <br />
+    }
 
-                <br />
-            }
+    <p><b>Page:</b></p>
 
-<a asp-action="Index" asp-route-pageNum="1">1</a>
-<a asp-action="Index" asp-route-pageNum="2">2</a>
-<a asp-action="Index" asp-route-pageNum="3">3</a>
+    <!--Dynamically creates page numbers to go to next set of books-->
+    <div page-model="@Model.PageInfo" page-action="Index"></div>

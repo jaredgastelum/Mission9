@@ -10,6 +10,8 @@ namespace AmazonProject.Models
 {
     public partial class Book
     {
+
+        // THIS INFORMATION WAS PUT IN HERE BY THE SCAFFOLDING WE DID AT THE BEGINNING TO PULL IN THE DATABASE
         [Key]
         [Required]
         public int BookId { get; set; }

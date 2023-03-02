@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AmazonProject.Models;
+using AmazonProject.Models.ViewModels;
 
 namespace AmazonProject.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
 
         private IAmazonProjectRepository repo;
 
@@ -25,18 +20,32 @@ namespace AmazonProject.Controllers
             repo = temp;
         }
 
+        // the INDEX.html is the book list screen
         public IActionResult Index(int pageNum = 1)
         {
             int pageSize = 10;
 
-            var allBooks = repo.Books
+            // This is how we print off the information for each book
+            var x = new BooksViewModel
+            {
+                Books = repo.Books
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize);
+                .Take(pageSize),
 
-            return View(allBooks);
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(x);
         }
 
+
+        // this is from the set up. We can change this to something else later
         public IActionResult Privacy()
         {
             return View();

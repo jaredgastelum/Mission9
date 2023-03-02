@@ -19,6 +19,7 @@ namespace AmazonProject.Models
         {
         }
 
+        // CREATE A VARIABLE TO HOLD ALL THE BOOKS
         public DbSet<Book> Books { get; set; }
 
     }
