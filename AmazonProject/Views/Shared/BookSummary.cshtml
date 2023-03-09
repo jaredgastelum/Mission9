@@ -1,0 +1,20 @@
+﻿@{
+}
+
+@model Book
+
+@* print off all the books in cards*@
+<div class="card" style="width: 55rem;">
+    <div class="card-body">
+        <h5 class="card-title bg-light p-2">@Model.Title <span class="badge bg-info" style="float:right; color:white;">Price: $@Model.Price</span></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Author: @Model.Author</h6>
+        
+        <ul>
+            <li>ISBN: @Model.Isbn</li>
+            <li>Classification: @Model.Classification</li>
+            <li>Category: @Model.Category</li>
+            <li>Page Count: @Model.PageCount</li>
+        </ul>
+    </div>
+</div>
+<br />

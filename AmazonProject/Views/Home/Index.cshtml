@@ -4,34 +4,19 @@
 
 @model BooksViewModel
 
-    <div class="jumbotron">
+    <div class="jumbotron col-9">
         <h1>Book List:</h1>
     </div>
 
 
     @foreach (Book b in Model.Books)
     {
-        // print off all the books in cards
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">@b.Title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author: @b.Author</h6>
-                <ul>
-                    <li>ISBN: @b.Isbn</li>
-                    <li>Classification: @b.Classification</li>
-                    <li>Category: @b.Category</li>
-                    <li>Page Count: @b.PageCount</li>
-                    <li>Price: $@b.Price</li>
-                </ul>
-            </div>
-        </div>
-        <br />
+        <partial name="BookSummary" model="b"/>
     }
 
     <p><b>Page:</b></p>
 
     <!--Dynamically creates page numbers to go to next set of books-->
-    <div page-model="@Model.PageInfo" page-action="Index"></div>
-
-
-<!-- WHATSSSS UPPPPPP-->
+    <div page-model="@Model.PageInfo" page-action="Index" page-class="btn"
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-class-enabled="true"
+         class="btn-group pull-right m-1"></div>
