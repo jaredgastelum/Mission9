@@ -9,13 +9,20 @@
         <h5 class="card-title bg-light p-2">@Model.Title <span class="badge bg-info" style="float:right; color:white;">Price: $@Model.Price</span></h5>
         <!-- I INCLUDED THIS 'CARD-SUBTITLE' FROM BOOTSTRAP MYSELF OUTSIDE OF THE VIDEOS FOR THIS -->
         <h6 class="card-subtitle mb-2 text-muted">Author: @Model.Author</h6>
-        
+
         <ul>
             <li>ISBN: @Model.Isbn</li>
             <li>Classification: @Model.Classification</li>
             <li>Category: @Model.Category</li>
             <li>Page Count: @Model.PageCount</li>
         </ul>
+
+        <form method="post" asp-page="/Cart">
+            <span class="card-text">
+                <button type="submit" class="btn btn-success btn-sm float-end">Add to Cart</button>
+            </span>
+        </form>
     </div>
+
 </div>
 <br />
