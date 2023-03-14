@@ -8,6 +8,8 @@ namespace AmazonProject.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
+
+        // ADDING ITEMS TO THE BASKET LINE
         public void AddItem (Book book, int qty)
         {
             BasketLineItem line = Items
@@ -29,6 +31,8 @@ namespace AmazonProject.Models
 
         }
 
+
+        // CALCULATE THE TOTAL COST FOR ALL THE BOOKS
         public double CalculateTotal()
         {
             double sum = Items.Sum(x => x.Quantity * x.Book.Price);
@@ -37,6 +41,7 @@ namespace AmazonProject.Models
         }
     }
 
+    // INFORMATION WE WANT IN THE BASKET LINE
     public class BasketLineItem
     {
         public int LineID { get; set; }

@@ -19,14 +19,15 @@
         </tr>
     </thead>
 
+    <!-- THIS IS GOING TO LOAD ALL THE INFORMATION FOR EACH BOOK IN THE CART-->
     <tbody>
         @foreach(var i in Model.basket.Items)
             {
         <tr>
             <td>@i.Book.Title</td>
             <td>@i.Quantity</td>
-            <td>@i.Book.Price</td>
-            <td>@(i.Quantity * i.Book.Price)</td>
+            <td>$@i.Book.Price</td>
+            <td>$@(i.Quantity * i.Book.Price)</td>
         </tr>
             }
     </tbody>
@@ -34,7 +35,7 @@
     <tfoot>
         <tr>
             <td colspan="3">Total:</td>
-            <td>@Model.basket.CalculateTotal().ToString("C")</td>
+            <td>$@Model.basket.CalculateTotal().ToString()</td>
         </tr>
     </tfoot>
 

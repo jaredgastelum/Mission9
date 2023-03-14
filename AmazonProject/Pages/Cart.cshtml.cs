@@ -18,6 +18,7 @@ namespace AmazonProject.Pages
             repo = temp;
         }
 
+        // CREATING A BASKET INSTANCE
         public Basket basket { get; set; }
 
         public string ReturnUrl { get; set; }
