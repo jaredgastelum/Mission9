@@ -28,6 +28,13 @@ namespace AmazonProject.Models
             }
 
         }
+
+        public double CalculateTotal()
+        {
+            double sum = Items.Sum(x => x.Quantity * x.Book.Price);
+
+            return sum;
+        }
     }
 
     public class BasketLineItem
