@@ -9,4 +9,5 @@ namespace AmazonProject.Models
         // THIS WILL WORK HAND AND HAND WITH THE EFAMAZONPROJECTREPOSITORY
         IQueryable<Book> Books { get; }
     }
+
 }
