@@ -20,13 +20,16 @@ namespace AmazonProject.Pages
 
         public Basket basket { get; set; }
 
-        public void OnGet()
+        public string ReturnUrl { get; set; }
+
+        public void OnGet(string returnUrl)
         {
+            ReturnUrl = returnUrl ?? "/";
             // THIS WORKS WITH THE SESSION WE CREATED
             basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
         }
 
-        public IActionResult OnPost(int bookId)
+        public IActionResult OnPost(int bookId, string returnUrl)
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookId == bookId);
 
@@ -35,7 +38,7 @@ namespace AmazonProject.Pages
 
             HttpContext.Session.SetJson("basket", basket);
 
-            return RedirectToPage();
+            return RedirectToPage(new { ReturnUrl = returnUrl });
         }
 
     }

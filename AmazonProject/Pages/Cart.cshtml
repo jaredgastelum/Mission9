@@ -4,7 +4,7 @@
 }
 
 <!--I ADDED THIS BOOTSTRAP JUMBOTRON MYSELF-->
-<div class="jumbotron col-9">
+<div class="jumbotron">
     <h1>Shopping Cart</h1>
 </div>
 
@@ -34,8 +34,12 @@
     <tfoot>
         <tr>
             <td colspan="3">Total:</td>
-            <td>@Model.basket.CalculateTotal().ToString("c")</td>
+            <td>@Model.basket.CalculateTotal().ToString("C")</td>
         </tr>
     </tfoot>
 
 </table>
+
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
