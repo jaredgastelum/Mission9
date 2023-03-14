@@ -10,7 +10,7 @@ namespace AmazonProject.Models
 
 
         // ADDING ITEMS TO THE BASKET LINE
-        public void AddItem (Book book, int qty)
+        public virtual void AddItem (Book book, int qty)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
@@ -31,6 +31,15 @@ namespace AmazonProject.Models
 
         }
 
+        public virtual void RemoveItem (Book book)
+        {
+            Items.RemoveAll(x => x.Book.BookId == book.BookId);
+        }
+
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
+        }
 
         // CALCULATE THE TOTAL COST FOR ALL THE BOOKS
         public double CalculateTotal()
@@ -51,3 +60,4 @@ namespace AmazonProject.Models
         public int Quantity { get; set; }
     }
 }
+
