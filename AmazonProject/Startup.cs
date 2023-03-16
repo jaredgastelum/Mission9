@@ -34,6 +34,7 @@ namespace AmazonProject
             });
 
             services.AddScoped<IAmazonProjectRepository, EFAmazonProjectRepository>();
+            services.AddScoped<IPaymentRepository, EFPaymentRepository>();
 
             services.AddRazorPages();
 

@@ -21,6 +21,6 @@ namespace AmazonProject.Models
 
         // CREATE A VARIABLE TO HOLD ALL THE BOOKS
         public DbSet<Book> Books { get; set; }
-
+        public object Payments { get; internal set; }
     }
 }
